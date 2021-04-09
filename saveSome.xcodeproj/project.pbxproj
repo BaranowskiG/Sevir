@@ -17,6 +17,9 @@
 		974080A9261C73740072BD63 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974080A8261C73740072BD63 /* TabBarView.swift */; };
 		974080AC261C74F20072BD63 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974080AB261C74F20072BD63 /* Constant.swift */; };
 		974080B0261C7DC50072BD63 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974080AF261C7DC50072BD63 /* ColorExtension.swift */; };
+		976C09022620EB5C0004273C /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C09012620EB5C0004273C /* Database.swift */; };
+		976C09052620EE9F0004273C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C09042620EE9F0004273C /* HomeViewModel.swift */; };
+		976C09082620F1CB0004273C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C09072620F1CB0004273C /* Money.swift */; };
 		97A0B283261A45A80015EBE4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A0B282261A45A80015EBE4 /* Transaction.swift */; };
 		D19A924A343F3810278C4D21 /* Pods_saveSome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD1202049903B56135541F /* Pods_saveSome.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +38,9 @@
 		974080A8261C73740072BD63 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		974080AB261C74F20072BD63 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		974080AF261C7DC50072BD63 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		976C09012620EB5C0004273C /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		976C09042620EE9F0004273C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		976C09072620F1CB0004273C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		97A0B282261A45A80015EBE4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		A1AD1202049903B56135541F /* Pods_saveSome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_saveSome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9938919766F374205E4F290 /* Pods-saveSome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-saveSome.release.xcconfig"; path = "Target Support Files/Pods-saveSome/Pods-saveSome.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +133,8 @@
 				974080AE261C7DAB0072BD63 /* Extensions */,
 				97A0B282261A45A80015EBE4 /* Transaction.swift */,
 				974080AB261C74F20072BD63 /* Constant.swift */,
+				976C09012620EB5C0004273C /* Database.swift */,
+				976C09072620F1CB0004273C /* Money.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 		97A0B281261A44EF0015EBE4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				976C09042620EE9F0004273C /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -260,13 +269,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9720C77E261A0A600051FB68 /* HomeView.swift in Sources */,
+				976C09052620EE9F0004273C /* HomeViewModel.swift in Sources */,
 				974080A4261C6CEC0072BD63 /* MainView.swift in Sources */,
 				974080A9261C73740072BD63 /* TabBarView.swift in Sources */,
 				974080B0261C7DC50072BD63 /* ColorExtension.swift in Sources */,
 				974080AC261C74F20072BD63 /* Constant.swift in Sources */,
+				976C09082620F1CB0004273C /* Money.swift in Sources */,
 				9720C77C261A0A600051FB68 /* saveSomeApp.swift in Sources */,
 				974080A1261C6CC70072BD63 /* NewTransactionView.swift in Sources */,
 				97A0B283261A45A80015EBE4 /* Transaction.swift in Sources */,
+				976C09022620EB5C0004273C /* Database.swift in Sources */,
 				9740809E261C6CA40072BD63 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

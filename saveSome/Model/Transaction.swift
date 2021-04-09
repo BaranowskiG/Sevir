@@ -8,15 +8,20 @@
 import Foundation
 import RealmSwift
 
-class Transaction: Object {
-    var id = UUID().uuidString
-    var date = Date()
-    var value: Int
-    var title: String
-    var category: String
+class Transaction: Object, Identifiable {
+    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var date = Date()
+    @objc dynamic var amount: Int = 0
+    @objc dynamic var title: String = "Item"
+    @objc dynamic var category: String = "swift"
     
-    init(value: Int, title: String, category: String) {
-        self.value = value
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    convenience init(amount: Int, title: String, category: String) {
+        self.init()
+        self.amount = amount
         self.title = title
         self.category = category
     }

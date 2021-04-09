@@ -9,30 +9,42 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var balance = 1000
+    @ObservedObject var homeViewModel = HomeViewModel()
+    
+    let test: [Transaction] = [
+        Transaction(amount: 125, title: "Grocery", category: "drop.fill"),
+        Transaction(amount: 12402124, title: "Car", category: "car.fill"),
+        Transaction(amount: -15, title: "Apples", category: "applelogo"),
+        Transaction(amount: -1351452, title: "watch", category: "applewatch.watchface"),
+        Transaction(amount: 1245, title: "Grocery", category: "drop"),
+        Transaction()
+    ]
     
     var body: some View {
         VStack {
             topView
+                .shadow(color: .themeTheDarkest, radius: 2, x: 0, y: 3)
             ScrollView(showsIndicators: false) {
-                ForEach(0..<15) { index in
+                ForEach(homeViewModel.database.getAll()) { trans in
                     GeometryReader { geo in
                         HStack {
-                            Image(systemName: "circle")
-                            Text("Item \(index)")
+                            Image(systemName: "\(trans.category)")
+                            Text("\(trans.title)")
                             Spacer()
-                            Text("$ 200")
+                            Text("$ \(trans.amount)")
                         }
                         .padding()
-                        .background(Color.themeLight)
+                        .background(Color.themeTheLightest)
                         .cornerRadius(10)
                         .padding(.vertical, 5)
-                        .padding(.horizontal, geo.frame(in: .global).maxY * 0.09)
-                        .foregroundColor(Color(#colorLiteral(red: 0.0431372549, green: 0.4039215686, blue: 0.2705882353, alpha: 1)))
-                        .opacity(2.3 - Double(geo.frame(in: .global).maxY) * 0.003)
+                        .scaleEffect(1.1 - geo.frame(in: .global).maxY * 0.0006)
+                        .foregroundColor(.themeTheDarkest)
+                        .opacity(2.3 - Double(geo.frame(in: .global).maxY) * 0.0028)
+                        .shadow(color: .themeTheDarkest, radius: 3, x: 0, y: 3)
                     }
                     .frame(width: UIScreen.main.bounds.width - 50, height: 20, alignment: .center)
                     .padding()
+                    .padding(.vertical, 5)
                 }
             }
             
@@ -48,27 +60,27 @@ struct HomeView: View {
                 .textCase(.uppercase)
                 .font(.footnote)
                 .padding(1)
-                .foregroundColor(.themeSecondary)
-            Text("$ \(balance)")
+                .foregroundColor(.themeLight)
+            Text("$ \(homeViewModel.getCurrentBalance())")
                 .font(.largeTitle)
                 .fontWeight(.black)
-                .foregroundColor(.themeLight)
+                .foregroundColor(.themeTheLightest)
             HStack {
                 VStack {
                     HStack {
                         Image(systemName: "arrow.up.right.circle.fill")
-                            .foregroundColor(.themeLight)
+                            .foregroundColor(.themeTheLightest)
                         Text("income")
                             .textCase(.uppercase)
                             .font(.footnote)
-                            .foregroundColor(.themeSecondary)
+                            .foregroundColor(.themeLight)
                         Spacer()
                     }
                     HStack {
-                        Text("$ 12,202")
+                        Text("$ \(homeViewModel.getIncome())")
                             .font(.body)
                             .fontWeight(.bold)
-                            .foregroundColor(.themeLight)
+                            .foregroundColor(.themeTheLightest)
                             .padding(2)
                         Spacer()
                     }
@@ -79,18 +91,18 @@ struct HomeView: View {
                     HStack {
                         Spacer()
                         Image(systemName: "arrow.down.right.circle.fill")
-                            .foregroundColor(.themeLight)
+                            .foregroundColor(.themeTheLightest)
                         Text("expenses")
                             .textCase(.uppercase)
                             .font(.footnote)
-                            .foregroundColor(.themeSecondary)
+                            .foregroundColor(.themeLight)
                     }
                     HStack {
                         Spacer()
-                        Text("$ 0")
+                        Text("$ \(homeViewModel.getExpenses())")
                             .font(.body)
                             .fontWeight(.bold)
-                            .foregroundColor(.themeLight)
+                            .foregroundColor(.themeTheLightest)
                             .padding(2)
                     }
                 }
@@ -98,6 +110,9 @@ struct HomeView: View {
             .padding()
         }
         .padding(.horizontal, 30)
+        .onAppear {
+            homeViewModel.updateMoneyStatus()
+        }
     }
     
     

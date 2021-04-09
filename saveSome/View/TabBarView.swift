@@ -18,16 +18,16 @@ struct TabBarView: View {
                 }, label: {
                     Image(systemName: Constant.tabIcon[index])
                         .scaleEffect(index == 1 ? 2.6 : 1.8)
-                        .foregroundColor(itemIndex == index ? Color.themeDark : Color.themeSecondary)
+                        .foregroundColor(itemIndex == index ? Color.themeDark : Color.themeLight)
                         .padding(.horizontal, 20)
                 })
             }
             .padding(.vertical, 5)
         }
         .padding()
-        .background(Color.themeLight)
+        .background(Color.themeTheLightest)
         .cornerRadius(30)
-        .shadow(color: .themeDark, radius: 10, x: 0, y: 5)
+        .shadow(color: .themeTheDarkest, radius: 5, x: 0, y: 5)
         
     }
 }

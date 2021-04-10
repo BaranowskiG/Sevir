@@ -19,10 +19,10 @@ struct TabBarView: View {
                     Image(systemName: Constant.tabIcon[index])
                         .scaleEffect(index == 1 ? 2.6 : 1.8)
                         .foregroundColor(itemIndex == index ? Color.themeDark : Color.themeLight)
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, 18)
                 })
             }
-            .padding(.vertical, 5)
+            .padding(.vertical, 3)
         }
         .padding()
         .background(Color.themeTheLightest)

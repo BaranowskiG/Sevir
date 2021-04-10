@@ -25,5 +25,4 @@ class Transaction: Object, Identifiable {
         self.title = title
         self.category = category
     }
-    
 }

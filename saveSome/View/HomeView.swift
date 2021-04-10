@@ -22,96 +22,115 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            topView
-                .shadow(color: .themeTheDarkest, radius: 2, x: 0, y: 3)
-            ScrollView(showsIndicators: false) {
-                ForEach(homeViewModel.database.getAll()) { trans in
-                    GeometryReader { geo in
-                        HStack {
-                            Image(systemName: "\(trans.category)")
-                            Text("\(trans.title)")
-                            Spacer()
-                            Text("$ \(trans.amount)")
-                        }
-                        .padding()
-                        .background(Color.themeTheLightest)
-                        .cornerRadius(10)
-                        .padding(.vertical, 5)
-                        .scaleEffect(1.1 - geo.frame(in: .global).maxY * 0.0006)
-                        .foregroundColor(.themeTheDarkest)
-                        .opacity(2.3 - Double(geo.frame(in: .global).maxY) * 0.0028)
-                        .shadow(color: .themeTheDarkest, radius: 3, x: 0, y: 3)
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 50, height: 20, alignment: .center)
-                    .padding()
-                    .padding(.vertical, 5)
-                }
-            }
-            
+            overview
+            transactinsList
         }
         .padding()
     }
     
+    var overview: some View {
+        VStack {
+            currentBalanceView
+            HStack {
+                incomeView
+                Spacer()
+                expensesView
+            }
+            .padding()
+        }
+        .padding(.horizontal, 30)
+        .shadow(color: .themeTheDarkest, radius: 2, x: 0, y: 3)
+        .onAppear {
+            homeViewModel.updateMoneyStatus()
+        }
+    }
     
-    
-    var topView: some View {
+    var currentBalanceView: some View {
         VStack {
             Text("current balance")
                 .textCase(.uppercase)
                 .font(.footnote)
                 .padding(1)
                 .foregroundColor(.themeLight)
-            Text("$ \(homeViewModel.getCurrentBalance())")
+            Text("$\(homeViewModel.getCurrentBalance())")
                 .font(.largeTitle)
                 .fontWeight(.black)
                 .foregroundColor(.themeTheLightest)
-            HStack {
-                VStack {
-                    HStack {
-                        Image(systemName: "arrow.up.right.circle.fill")
-                            .foregroundColor(.themeTheLightest)
-                        Text("income")
-                            .textCase(.uppercase)
-                            .font(.footnote)
-                            .foregroundColor(.themeLight)
-                        Spacer()
-                    }
-                    HStack {
-                        Text("$ \(homeViewModel.getIncome())")
-                            .font(.body)
-                            .fontWeight(.bold)
-                            .foregroundColor(.themeTheLightest)
-                            .padding(2)
-                        Spacer()
-                    }
-                }
-                
-                Spacer()
-                VStack {
-                    HStack {
-                        Spacer()
-                        Image(systemName: "arrow.down.right.circle.fill")
-                            .foregroundColor(.themeTheLightest)
-                        Text("expenses")
-                            .textCase(.uppercase)
-                            .font(.footnote)
-                            .foregroundColor(.themeLight)
-                    }
-                    HStack {
-                        Spacer()
-                        Text("$ \(homeViewModel.getExpenses())")
-                            .font(.body)
-                            .fontWeight(.bold)
-                            .foregroundColor(.themeTheLightest)
-                            .padding(2)
-                    }
-                }
-            }
-            .padding()
         }
-        .padding(.horizontal, 30)
-        .onAppear {
-            homeViewModel.updateMoneyStatus()
+    }
+    
+    var incomeView: some View {
+        VStack {
+            HStack {
+                Image(systemName: "arrow.up.right.circle.fill")
+                    .foregroundColor(.themeTheLightest)
+                Text("income")
+                    .textCase(.uppercase)
+                    .font(.footnote)
+                    .foregroundColor(.themeLight)
+                Spacer()
+            }
+            HStack {
+                Text("$\(homeViewModel.getIncome())")
+                    .font(.body)
+                    .fontWeight(.bold)
+                    .foregroundColor(.themeTheLightest)
+                    .padding(2)
+                Spacer()
+            }
+        }
+    }
+    
+    var expensesView: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Image(systemName: "arrow.down.right.circle.fill")
+                    .foregroundColor(.themeTheLightest)
+                Text("expenses")
+                    .textCase(.uppercase)
+                    .font(.footnote)
+                    .foregroundColor(.themeLight)
+            }
+            HStack {
+                Spacer()
+                Text("$\(abs(homeViewModel.getExpenses()))")
+                    .font(.body)
+                    .fontWeight(.bold)
+                    .foregroundColor(.themeTheLightest)
+                    .padding(2)
+            }
+        }
+    }
+    
+    
+    var transactinsList: some View {
+        ScrollView(showsIndicators: false) {
+            ForEach(homeViewModel.database.getAll()) { trans in
+                GeometryReader { geo in
+                    HStack {
+                        Image(systemName: "\(trans.category)")
+                        Text("\(trans.title)")
+                        Spacer()
+                        if trans.amount < 0 {
+                            Text("- $\(abs(trans.amount))")
+                        } else {
+                            Text("$\(trans.amount)")
+                        }
+                    }
+                    .padding()
+                    .background(Color.themeTheLightest)
+                    .cornerRadius(10)
+                    .padding(.vertical, 5)
+                    .scaleEffect(1.1 - geo.frame(in: .global).maxY * 0.0006)
+                    .foregroundColor(trans.amount > 0 ?.themeTheDarkest : .red)
+                    .opacity(2.3 - Double(geo.frame(in: .global).maxY) * 0.0028)
+                    .shadow(color: .themeTheDarkest, radius: 3, x: 0, y: 3)
+                }
+                .frame(width: UIScreen.main.bounds.width - 50, height: 20, alignment: .center)
+                .padding()
+                .padding(.vertical, 5)
+            }
         }
     }
     

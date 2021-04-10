@@ -34,6 +34,7 @@ struct MainView: View {
                 Spacer()
                 TabBarView(itemIndex: $currentViewIndex)
             }
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
     }
 }

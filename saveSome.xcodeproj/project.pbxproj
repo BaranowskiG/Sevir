@@ -21,6 +21,7 @@
 		976C09052620EE9F0004273C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C09042620EE9F0004273C /* HomeViewModel.swift */; };
 		976C09082620F1CB0004273C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C09072620F1CB0004273C /* Money.swift */; };
 		97A0B283261A45A80015EBE4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A0B282261A45A80015EBE4 /* Transaction.swift */; };
+		97DC3FDA262243D2007D7B85 /* NewTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DC3FD9262243D1007D7B85 /* NewTransactionViewModel.swift */; };
 		D19A924A343F3810278C4D21 /* Pods_saveSome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD1202049903B56135541F /* Pods_saveSome.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		976C09042620EE9F0004273C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		976C09072620F1CB0004273C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		97A0B282261A45A80015EBE4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		97DC3FD9262243D1007D7B85 /* NewTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewModel.swift; sourceTree = "<group>"; };
 		A1AD1202049903B56135541F /* Pods_saveSome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_saveSome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9938919766F374205E4F290 /* Pods-saveSome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-saveSome.release.xcconfig"; path = "Target Support Files/Pods-saveSome/Pods-saveSome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				976C09042620EE9F0004273C /* HomeViewModel.swift */,
+				97DC3FD9262243D1007D7B85 /* NewTransactionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				9720C77C261A0A600051FB68 /* saveSomeApp.swift in Sources */,
 				974080A1261C6CC70072BD63 /* NewTransactionView.swift in Sources */,
 				97A0B283261A45A80015EBE4 /* Transaction.swift in Sources */,
+				97DC3FDA262243D2007D7B85 /* NewTransactionViewModel.swift in Sources */,
 				976C09022620EB5C0004273C /* Database.swift in Sources */,
 				9740809E261C6CA40072BD63 /* ChartView.swift in Sources */,
 			);

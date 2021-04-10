@@ -12,8 +12,8 @@ class Transaction: Object, Identifiable {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var date = Date()
     @objc dynamic var amount: Int = 0
-    @objc dynamic var title: String = "Item"
-    @objc dynamic var category: String = "swift"
+    @objc dynamic var title: String = ""
+    @objc dynamic var category: String = ""
     
     override class func primaryKey() -> String? {
         return "id"

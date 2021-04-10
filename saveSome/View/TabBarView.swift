@@ -17,18 +17,17 @@ struct TabBarView: View {
                     itemIndex = index
                 }, label: {
                     Image(systemName: Constant.tabIcon[index])
-                        .scaleEffect(index == 1 ? 2.6 : 1.8)
-                        .foregroundColor(itemIndex == index ? Color.themeDark : Color.themeLight)
-                        .padding(.horizontal, 18)
+                        .scaleEffect(index == 1 ? 2.4 : 2.0)
+                        .foregroundColor(itemIndex == index ? Color.themeTheDarkest : Color.themeLight)
+                        .padding(.horizontal, 25)
                 })
             }
             .padding(.vertical, 3)
         }
         .padding()
         .background(Color.themeTheLightest)
-        .cornerRadius(30)
-        .shadow(color: .themeTheDarkest, radius: 5, x: 0, y: 5)
-        
+        .cornerRadius(10)
+        .shadow(color: .themeTheDarkest, radius: 5, x: 0, y: 5)        
     }
 }
 

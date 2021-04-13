@@ -20,18 +20,24 @@ struct NewTransactionView: View {
     @State private var title = ""
     @State private var amount = ""
     @State private var type: TransactionType = .income
+    @State private var hint = "type to change value"
     
     let categories = [
         "flame",
         "drop",
         "house",
         "gamecontroller",
-        "bolt.car",
+        "bolt.car", // 5
         "leaf",
         "dollarsign.circle",
         "pc",
-        "figure.stand",
-        "mic"
+        "figure.walk",
+        "mic", // 10
+        "graduationcap",
+        "cross.case",
+        "apps.iphone",
+        "airplane",
+        "bitcoinsign.circle"
     ]
     
     
@@ -58,7 +64,7 @@ struct NewTransactionView: View {
                 .textCase(.uppercase)
                 .padding()
                 .padding(.bottom, 20)
-            Text("type to change value")
+            Text(hint)
                 .textCase(.uppercase)
                 .font(.footnote)
                 .padding(1)
@@ -93,7 +99,7 @@ struct NewTransactionView: View {
             .padding(.bottom, 20)
             
 
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], alignment: .center, spacing: 10) {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))], alignment: .center, spacing: 10) {
                 ForEach(categories, id: \.self) { cat in
                     Image(systemName: cat)
                         .resizable()
@@ -106,10 +112,18 @@ struct NewTransactionView: View {
                         }
                 }
             }
-            .padding()
+            .padding(.horizontal, 30)
             
             
             Button(action: {
+                if amount == "" || title == "" {
+                    hint = "bad input :("
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        hint = "type to change value"
+                    }
+                    return
+                    
+                }
                 newTransactionviewModel.postNewTransaction(
                     amount: type == .income ? Int(amount)! : -Int(amount)!,
                     title: title,
@@ -119,6 +133,10 @@ struct NewTransactionView: View {
                 title = ""
                 amount = ""
                 category = "dollarsign.circle"
+                hint = "good! one more time?"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    hint = "type to change value"
+                }
             }, label: {
                 Text("create")
                     .font(.title3)
@@ -131,6 +149,7 @@ struct NewTransactionView: View {
                     .cornerRadius(10)
             })
             .shadow(color: .themeTheDarkest, radius: 3, x: 0, y: 3)
+            .padding()
 
             Spacer()
         }

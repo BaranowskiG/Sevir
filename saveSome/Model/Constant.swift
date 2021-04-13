@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Constant {
-    static let tabIcon = ["house.circle.fill", "plus.circle.fill", "chart.pie.fill"]
+    static let tabIcon = ["house.fill", "plus.square.fill", "gearshape.fill"]
+    
+    static let mainGradient = Gradient(colors: [.themeDark, .themeMain])
 }

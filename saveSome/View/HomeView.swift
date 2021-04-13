@@ -10,99 +10,14 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var homeViewModel = HomeViewModel()
-    
-    let test: [Transaction] = [
-        Transaction(amount: 125, title: "Grocery", category: "drop.fill"),
-        Transaction(amount: 12402124, title: "Car", category: "car.fill"),
-        Transaction(amount: -15, title: "Apples", category: "applelogo"),
-        Transaction(amount: -1351452, title: "watch", category: "applewatch.watchface"),
-        Transaction(amount: 1245, title: "Grocery", category: "drop"),
-        Transaction()
-    ]
-    
+
     var body: some View {
         VStack {
-            overview
+            OverviewView()
             transactinsList
         }
         .padding()
     }
-    
-    var overview: some View {
-        VStack {
-            currentBalanceView
-            HStack {
-                incomeView
-                Spacer()
-                expensesView
-            }
-            .padding()
-        }
-        .padding(.horizontal, 30)
-        .shadow(color: .themeTheDarkest, radius: 2, x: 0, y: 3)
-        .onAppear {
-            homeViewModel.updateMoneyStatus()
-        }
-    }
-    
-    var currentBalanceView: some View {
-        VStack {
-            Text("current balance")
-                .textCase(.uppercase)
-                .font(.footnote)
-                .padding(1)
-                .foregroundColor(.themeLight)
-            Text("$\(homeViewModel.getCurrentBalance())")
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(.themeTheLightest)
-        }
-    }
-    
-    var incomeView: some View {
-        VStack {
-            HStack {
-                Image(systemName: "arrow.up.right.circle.fill")
-                    .foregroundColor(.themeTheLightest)
-                Text("income")
-                    .textCase(.uppercase)
-                    .font(.footnote)
-                    .foregroundColor(.themeLight)
-                Spacer()
-            }
-            HStack {
-                Text("$\(homeViewModel.getIncome())")
-                    .font(.body)
-                    .fontWeight(.bold)
-                    .foregroundColor(.themeTheLightest)
-                    .padding(2)
-                Spacer()
-            }
-        }
-    }
-    
-    var expensesView: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Image(systemName: "arrow.down.right.circle.fill")
-                    .foregroundColor(.themeTheLightest)
-                Text("expenses")
-                    .textCase(.uppercase)
-                    .font(.footnote)
-                    .foregroundColor(.themeLight)
-            }
-            HStack {
-                Spacer()
-                Text("$\(abs(homeViewModel.getExpenses()))")
-                    .font(.body)
-                    .fontWeight(.bold)
-                    .foregroundColor(.themeTheLightest)
-                    .padding(2)
-            }
-        }
-    }
-    
     
     var transactinsList: some View {
         ScrollView(showsIndicators: false) {
@@ -139,7 +54,7 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        //        HomeView()
         MainView()
+            .preferredColorScheme(.dark)
     }
 }

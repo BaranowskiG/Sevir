@@ -12,31 +12,40 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [.themeDark, .themeMain]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
-
-            VStack {
-                switch currentViewIndex {
-                case 0:
-                    HomeView()
-                case 1:
-                    NewTransactionView()
-                default:
-                    ChartView()
-                }
-                Spacer()
-            }
-            VStack {
-                Spacer()
-                TabBarView(itemIndex: $currentViewIndex)
-            }
-            .ignoresSafeArea(.keyboard, edges: .bottom)
+            backgroundGradient
+            currentView
+            tabBar
+                .padding()
         }
     }
+    
+    private var backgroundGradient: some View {
+        LinearGradient(gradient: Constant.mainGradient, startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+    }
+    
+    private var currentView: some View {
+        VStack {
+            switch currentViewIndex {
+            case 0:
+                HomeView()
+            case 1:
+                NewTransactionView()
+            default:
+                SettingsView()
+            }
+            Spacer()
+        }
+    }
+    
+    private var tabBar: some View {
+        VStack {
+            Spacer()
+            TabBarView(itemIndex: $currentViewIndex)
+        }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+    }
+    
 }
 
 struct MainView_Previews: PreviewProvider {

@@ -20,4 +20,10 @@ struct Database {
             realm.add(transaction)
         }
     }
+    
+    func deleteAll() {
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
 }

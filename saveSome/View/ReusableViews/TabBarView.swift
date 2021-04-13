@@ -17,7 +17,7 @@ struct TabBarView: View {
                     itemIndex = index
                 }, label: {
                     Image(systemName: Constant.tabIcon[index])
-                        .scaleEffect(index == 1 ? 2.4 : 2.0)
+                        .scaleEffect(index == 1 ? 2.4 : 1.5)
                         .foregroundColor(itemIndex == index ? Color.themeTheDarkest : Color.themeLight)
                         .padding(.horizontal, 25)
                 })

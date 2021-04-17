@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct saveSomeApp: App {
+    
+    @State var sawIntroductionView = UserDefaults.standard.bool(forKey: "sawIntroductionView")
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            if !sawIntroductionView {
+                IntroductionView(sawIntroductionView: $sawIntroductionView)
+                    .background(LinearGradient(gradient: Constant.mainGradient, startPoint: .top, endPoint: .bottom))
+                    .ignoresSafeArea()
+            } else {
+                MainView()
+            }
         }
     }
 }

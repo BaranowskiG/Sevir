@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OverviewView: View {
     
-    @ObservedObject var homeViewModel = OverviewViewModel()
+    @ObservedObject var overviewViewModel = OverviewViewModel()
     
     var body: some View {
         VStack {
@@ -23,7 +23,7 @@ struct OverviewView: View {
         }
         .padding(.horizontal, 30)
         .onAppear {
-            homeViewModel.updateMoneyStatus()
+            overviewViewModel.updateMoneyStatus()
         }
     }
     
@@ -34,10 +34,18 @@ struct OverviewView: View {
                 .font(.footnote)
                 .padding(1)
                 .foregroundColor(.themeTheLightest)
-            Text("$\(homeViewModel.getCurrentBalance())")
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(.themeTheLightest)
+                if overviewViewModel.getCurrentBalance() < 0 {
+                    Text("- $\(abs(overviewViewModel.getCurrentBalance()))")
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                        .foregroundColor(.themeTheLightest)
+                } else {
+                    Text("$\(overviewViewModel.getCurrentBalance())")
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                        .foregroundColor(.themeTheLightest)
+                }
+                
         }
     }
     
@@ -53,7 +61,7 @@ struct OverviewView: View {
                 Spacer()
             }
             HStack {
-                Text("$\(homeViewModel.getIncome())")
+                Text("$\(overviewViewModel.getIncome())")
                     .font(.body)
                     .fontWeight(.bold)
                     .foregroundColor(.themeTheLightest)
@@ -76,7 +84,7 @@ struct OverviewView: View {
             }
             HStack {
                 Spacer()
-                Text("$\(abs(homeViewModel.getExpenses()))")
+                Text("$\(abs(overviewViewModel.getExpenses()))")
                     .font(.body)
                     .fontWeight(.bold)
                     .foregroundColor(.themeTheLightest)

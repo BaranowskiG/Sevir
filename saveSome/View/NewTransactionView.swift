@@ -20,7 +20,7 @@ struct NewTransactionView: View {
     @State private var title = ""
     @State private var amount = ""
     @State private var type: TransactionType = .income
-    @State private var hint = "type to change value"
+    @State private var message = "create"
     
     let categories = [
         "flame",
@@ -64,7 +64,7 @@ struct NewTransactionView: View {
                 .textCase(.uppercase)
                 .padding()
                 .padding(.bottom, 20)
-            Text(hint)
+            Text("type to change value")
                 .textCase(.uppercase)
                 .font(.footnote)
                 .padding(1)
@@ -117,9 +117,9 @@ struct NewTransactionView: View {
             
             Button(action: {
                 if amount == "" || title == "" {
-                    hint = "bad input :("
+                    message = "bad input"
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        hint = "type to change value"
+                        message = "create"
                     }
                     return
                     
@@ -133,12 +133,12 @@ struct NewTransactionView: View {
                 title = ""
                 amount = ""
                 category = "dollarsign.circle"
-                hint = "good! one more time?"
+                message = "done!"
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    hint = "type to change value"
+                    message = "create"
                 }
             }, label: {
-                Text("create")
+                Text(message)
                     .font(.title3)
                     .fontWeight(.black)
                     .foregroundColor(.themeTheDarkest)

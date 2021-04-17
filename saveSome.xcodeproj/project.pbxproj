@@ -20,6 +20,9 @@
 		976C09022620EB5C0004273C /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C09012620EB5C0004273C /* Database.swift */; };
 		976C09052620EE9F0004273C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C09042620EE9F0004273C /* HomeViewModel.swift */; };
 		976C09082620F1CB0004273C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C09072620F1CB0004273C /* Money.swift */; };
+		976EFD14262B6CE4008513DE /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976EFD12262B6CE4008513DE /* InformationView.swift */; };
+		976EFD15262B6CE4008513DE /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976EFD13262B6CE4008513DE /* IntroductionView.swift */; };
+		976EFD18262B6D4E008513DE /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976EFD17262B6D4E008513DE /* Tip.swift */; };
 		97A0B283261A45A80015EBE4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A0B282261A45A80015EBE4 /* Transaction.swift */; };
 		97AB541A26236ABC00127EA0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB541926236ABC00127EA0 /* SettingsViewModel.swift */; };
 		97AB542026237C0700127EA0 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB541F26237C0700127EA0 /* OverviewView.swift */; };
@@ -45,6 +48,9 @@
 		976C09012620EB5C0004273C /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		976C09042620EE9F0004273C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		976C09072620F1CB0004273C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		976EFD12262B6CE4008513DE /* InformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		976EFD13262B6CE4008513DE /* IntroductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
+		976EFD17262B6D4E008513DE /* Tip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		97A0B282261A45A80015EBE4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		97AB541926236ABC00127EA0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		97AB541F26237C0700127EA0 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 		97A0B27F261A44D80015EBE4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				976EFD13262B6CE4008513DE /* IntroductionView.swift */,
+				976EFD12262B6CE4008513DE /* InformationView.swift */,
 				974080A3261C6CEC0072BD63 /* MainView.swift */,
 				9720C77D261A0A600051FB68 /* HomeView.swift */,
 				974080A0261C6CC70072BD63 /* NewTransactionView.swift */,
@@ -143,6 +151,7 @@
 				974080AB261C74F20072BD63 /* Constant.swift */,
 				976C09012620EB5C0004273C /* Database.swift */,
 				976C09072620F1CB0004273C /* Money.swift */,
+				976EFD17262B6D4E008513DE /* Tip.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,10 +308,13 @@
 				976C09082620F1CB0004273C /* Money.swift in Sources */,
 				9720C77C261A0A600051FB68 /* saveSomeApp.swift in Sources */,
 				974080A1261C6CC70072BD63 /* NewTransactionView.swift in Sources */,
+				976EFD18262B6D4E008513DE /* Tip.swift in Sources */,
 				97A0B283261A45A80015EBE4 /* Transaction.swift in Sources */,
 				97DC3FDA262243D2007D7B85 /* NewTransactionViewModel.swift in Sources */,
 				976C09022620EB5C0004273C /* Database.swift in Sources */,
+				976EFD14262B6CE4008513DE /* InformationView.swift in Sources */,
 				9740809E261C6CA40072BD63 /* SettingsView.swift in Sources */,
+				976EFD15262B6CE4008513DE /* IntroductionView.swift in Sources */,
 				97AB541A26236ABC00127EA0 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var settingsViewModel = SettingsViewModel()
     
+    @State private var resetMessage = "reset data"
     
     var body: some View {
         VStack {
@@ -30,8 +31,12 @@ struct SettingsView: View {
                 
                 Button(action: {
                     settingsViewModel.deleteAllTransactions()
+                    resetMessage = "data gone"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0 ) {
+                        resetMessage = "reset data"
+                    }
                 }, label: {
-                    Text("reset data")
+                    Text(resetMessage)
                         .font(.title3)
                         .fontWeight(.black)
                         .foregroundColor(.red)

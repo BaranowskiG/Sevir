@@ -16,6 +16,7 @@ struct MainView: View {
             currentView
             tabBar
                 .padding()
+                .ignoresSafeArea(.keyboard)
         }
     }
     

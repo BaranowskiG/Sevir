@@ -14,6 +14,21 @@ struct HomeView: View {
     var body: some View {
         VStack {
             OverviewView()
+            
+            if homeViewModel.database.getAll().count == 0 {
+                Text("You have no items yet.")
+                    .fontWeight(.bold)
+                    .textCase(.uppercase)
+                    .font(.body)
+                    .padding(.top, 30)
+                    .foregroundColor(.themeTheLightest)
+                Text("Create new one by pressing middle button.")
+//                    .textCase(.uppercase)
+                    .font(.footnote)
+                    .padding(.vertical, 10)
+                    .foregroundColor(.themeTheLightest)
+            }
+            
             transactinsList
         }
         .padding()

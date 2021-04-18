@@ -37,7 +37,12 @@ struct NewTransactionView: View {
         "cross.case",
         "apps.iphone",
         "airplane",
-        "bitcoinsign.circle"
+        "bitcoinsign.circle", // 15
+        "bus",
+        "tortoise",
+        "globe",
+        "gift",
+        "bed.double" // 20
     ]
     
     
@@ -63,12 +68,7 @@ struct NewTransactionView: View {
                 .foregroundColor(.themeTheLightest)
                 .textCase(.uppercase)
                 .padding()
-                .padding(.bottom, 20)
-            Text("type to change value")
-                .textCase(.uppercase)
-                .font(.footnote)
-                .padding(1)
-                .foregroundColor(.themeLight)
+                .padding(.vertical, 10)
             HStack {
                 Image(systemName: "\(category)")
                 TextField(type == .income ? "Salary" : "New PC", text: $title)
@@ -98,21 +98,23 @@ struct NewTransactionView: View {
             .foregroundColor(.themeTheDarkest)
             .padding(.bottom, 20)
             
-
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))], alignment: .center, spacing: 10) {
-                ForEach(categories, id: \.self) { cat in
-                    Image(systemName: cat)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .padding()
-                        .foregroundColor(.themeTheLightest)
-                        .onTapGesture {
-                            category = cat
-                        }
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: [GridItem(.adaptive(minimum: 50))], alignment: .center, spacing: 10) {
+                    ForEach(categories, id: \.self) { cat in
+                        Image(systemName: cat)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25, alignment: .center)
+                            .padding()
+                            .foregroundColor(.themeTheLightest)
+                            .onTapGesture {
+                                category = cat
+                            }
+                    }
                 }
+                .padding(.horizontal, 30)
             }
-            .padding(.horizontal, 30)
+            .frame(height: 150, alignment: .center)
             
             
             Button(action: {

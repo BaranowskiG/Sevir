@@ -30,10 +30,11 @@ struct OverviewView: View {
     var currentBalanceView: some View {
         VStack {
             Text("current balance")
-                .textCase(.uppercase)
-                .font(.footnote)
-                .padding(1)
+                .font(.title3)
+                .fontWeight(.black)
                 .foregroundColor(.themeTheLightest)
+                .textCase(.uppercase)
+                .padding(.vertical, 10)
                 if overviewViewModel.getCurrentBalance() < 0 {
                     Text("- $\(abs(overviewViewModel.getCurrentBalance()))")
                         .font(.largeTitle)
@@ -54,8 +55,8 @@ struct OverviewView: View {
             HStack {
                 Image(systemName: "arrow.up.right.circle.fill")
                     .foregroundColor(.themeTheLightest)
-                Text("income")
-                    .textCase(.uppercase)
+                Text("Income")
+//                    .textCase(.uppercase)
                     .font(.footnote)
                     .foregroundColor(.themeTheLightest)
                 Spacer()
@@ -77,8 +78,8 @@ struct OverviewView: View {
                 Spacer()
                 Image(systemName: "arrow.down.right.circle.fill")
                     .foregroundColor(.themeTheLightest)
-                Text("expenses")
-                    .textCase(.uppercase)
+                Text("Expenses")
+//                    .textCase(.uppercase)
                     .font(.footnote)
                     .foregroundColor(.themeTheLightest)
             }

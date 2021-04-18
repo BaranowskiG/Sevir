@@ -129,16 +129,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		975D61ED262C799E0094CBC6 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				9720C77D261A0A600051FB68 /* HomeView.swift */,
+				97AB541F26237C0700127EA0 /* OverviewView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		975D61EE262C79D80094CBC6 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				974080A3261C6CEC0072BD63 /* MainView.swift */,
+				974080A8261C73740072BD63 /* TabBarView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		97A0B27F261A44D80015EBE4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				976EFD13262B6CE4008513DE /* IntroductionView.swift */,
-				976EFD12262B6CE4008513DE /* InformationView.swift */,
-				974080A3261C6CEC0072BD63 /* MainView.swift */,
-				9720C77D261A0A600051FB68 /* HomeView.swift */,
+				975D61EE262C79D80094CBC6 /* MainView */,
+				975D61ED262C799E0094CBC6 /* HomeView */,
+				97A41BDA262C795B00CC1592 /* IntroductionView */,
 				974080A0261C6CC70072BD63 /* NewTransactionView.swift */,
 				9740809D261C6CA40072BD63 /* SettingsView.swift */,
-				97AB542626237E1700127EA0 /* ReusableViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,13 +183,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		97AB542626237E1700127EA0 /* ReusableViews */ = {
+		97A41BDA262C795B00CC1592 /* IntroductionView */ = {
 			isa = PBXGroup;
 			children = (
-				974080A8261C73740072BD63 /* TabBarView.swift */,
-				97AB541F26237C0700127EA0 /* OverviewView.swift */,
+				976EFD13262B6CE4008513DE /* IntroductionView.swift */,
+				976EFD12262B6CE4008513DE /* InformationView.swift */,
 			);
-			path = ReusableViews;
+			path = IntroductionView;
 			sourceTree = "<group>";
 		};
 		B6DD17AE19A8ED21EE77E17F /* Frameworks */ = {
